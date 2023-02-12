@@ -55,3 +55,24 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
+
+function game() {
+    let playerWin = 0;
+    let compWin = 0;
+    while(compWin < 3 && playerWin < 3){
+        let playerChoice = prompt("Rock, Paper, or Scissors?");
+        let result = playRound(playerChoice, getComputerChoice());
+        if (result[4] == 'W'){
+            playerWin++;
+        }
+        else if(result[4] == 'L'){
+            compWin++;
+        }
+    }
+    if(compWin == 3){
+        console.log("You lose, sad");
+    }
+    else{
+        console.log("You win,nice");
+    }
+}
