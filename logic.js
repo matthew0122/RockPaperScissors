@@ -1,13 +1,31 @@
 const buttons = document.querySelectorAll("button.choice");
 const results = document.createElement('div');
 const tempdiv = document.createElement('div');
+const finalRes = document.createElement('div');
+const playAgain = document.createElement('button');
 
 let playerWin = 0;
-let compWin = 0;;
+let compWin = 0;
+playAgain.innerText = "Would you like to play again?";
+
+
+
+playAgain.addEventListener("click", newGame);
 buttons.forEach(element => {
     element.addEventListener("click", playGame);
 });
 
+function newGame(){
+    buttons.forEach(element => {
+        element.addEventListener("click", playGame);
+    });
+    playerWin = 0;
+    compWin = 0;
+    results.innerText = `Player: ${playerWin}\n Computer: ${compWin}`;
+    document.body.removeChild(finalRes);
+    document.body.removeChild(playAgain);
+    tempdiv.innerText = "";
+}
 function playGame(e){
     let result = playRound(this.id, getComputerChoice());
     if (result[4] == 'W'){
@@ -18,14 +36,20 @@ function playGame(e){
     }
     results.innerText = `Player: ${playerWin}\n Computer: ${compWin}`;
     if(compWin == 3){
-        console.log("You lose, sad");
-        playerWin = 0;
-        compWin = 0;
+        finalRes.innerText = "You lose, sad";
+        document.body.append(finalRes);
+        document.body.append(playAgain);
+        buttons.forEach(element => {
+            element.removeEventListener("click", playGame);
+        });
     }
     else if(playerWin == 3){
-        console.log("You win,nice");
-        playerWin = 0;
-        compWin = 0;
+        finalRes.innerText = "You win,nice";
+        document.body.append(finalRes);
+        document.body.append(playAgain);
+        buttons.forEach(element => {
+            element.removeEventListener("click", playGame);
+        });
     }
     
 }
