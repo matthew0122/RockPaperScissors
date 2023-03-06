@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll("button.choice");
 const results = document.createElement('div');
+const tempdiv = document.createElement('div');
 
 let playerWin = 0;
 let compWin = 0;;
@@ -15,13 +16,18 @@ function playGame(e){
     else if(result[4] == 'L'){
         compWin++;
     }
+    results.innerText = `Player: ${playerWin}\n Computer: ${compWin}`;
     if(compWin == 3){
         console.log("You lose, sad");
+        playerWin = 0;
+        compWin = 0;
     }
     else if(playerWin == 3){
         console.log("You win,nice");
+        playerWin = 0;
+        compWin = 0;
     }
-    results.innerText = `Player: ${playerWin}\n Computer: ${compWin}`;
+    
 }
 
 function getComputerChoice() {
@@ -41,6 +47,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
+    tempdiv.innerText = `${playerSelection} vs ${computerSelection}`;
     if(playerSelection == "Rock"){
         switch(computerSelection){
             case "Rock":
@@ -82,5 +89,5 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-
+document.body.append(tempdiv);
 document.body.append(results);
