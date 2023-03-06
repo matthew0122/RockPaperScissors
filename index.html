@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="logic.js"></script>
+    <script src="logic.js" defer></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <button type="button" onclick="game()">Play?</button>
-    <button type="button" onclick="playRound('Rock', getComputerChoice())">Rock</button>
-    <button type="button" onclick="playRound('Paper', getComputerChoice())">Paper</button>
-    <button type="button" onclick="playRound('Scissors', getComputerChoice())">Scissors</button>
+    <button class="choice" id="Rock">Rock</button>
+    <button class="choice" id="Paper">Paper</button>
+    <button class="choice" id="Scissors">Scissors</button>
 </body>
 </html>

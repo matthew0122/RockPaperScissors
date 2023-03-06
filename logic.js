@@ -1,3 +1,14 @@
+const buttons = document.querySelectorAll("button.choice");
+
+buttons.forEach(element => {
+    element.addEventListener("click", playGame);
+});
+
+function playGame(e){
+    let result = playRound(this.id, getComputerChoice());
+    console.log(result);
+}
+
 function getComputerChoice() {
     let num = Math.random() * 100;
     if(num > 67){
@@ -60,8 +71,7 @@ function game() {
     let playerWin = 0;
     let compWin = 0;
     while(compWin < 3 && playerWin < 3){
-        let playerChoice = prompt("Rock, Paper, or Scissors?");
-        let result = playRound(playerChoice, getComputerChoice());
+        
         if (result[4] == 'W'){
             playerWin++;
         }
