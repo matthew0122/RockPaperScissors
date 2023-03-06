@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll("button.choice");
+const results = document.createElement('div');
+
 let playerWin = 0;
 let compWin = 0;;
 buttons.forEach(element => {
@@ -19,6 +21,7 @@ function playGame(e){
     else if(playerWin == 3){
         console.log("You win,nice");
     }
+    results.innerText = `Player: ${playerWin}\n Computer: ${compWin}`;
 }
 
 function getComputerChoice() {
@@ -79,22 +82,5 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game() {
-    let playerWin = 0;
-    let compWin = 0;
-    while(compWin < 3 && playerWin < 3){
-        result
-        if (result[4] == 'W'){
-            playerWin++;
-        }
-        else if(result[4] == 'L'){
-            compWin++;
-        }
-    }
-    if(compWin == 3){
-        console.log("You lose, sad");
-    }
-    else{
-        console.log("You win,nice");
-    }
-}
+
+document.body.append(results);
