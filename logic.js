@@ -1,12 +1,24 @@
 const buttons = document.querySelectorAll("button.choice");
-
+let playerWin = 0;
+let compWin = 0;;
 buttons.forEach(element => {
     element.addEventListener("click", playGame);
 });
 
 function playGame(e){
     let result = playRound(this.id, getComputerChoice());
-    console.log(result);
+    if (result[4] == 'W'){
+        playerWin++;
+    }
+    else if(result[4] == 'L'){
+        compWin++;
+    }
+    if(compWin == 3){
+        console.log("You lose, sad");
+    }
+    else if(playerWin == 3){
+        console.log("You win,nice");
+    }
 }
 
 function getComputerChoice() {
@@ -71,7 +83,7 @@ function game() {
     let playerWin = 0;
     let compWin = 0;
     while(compWin < 3 && playerWin < 3){
-        
+        result
         if (result[4] == 'W'){
             playerWin++;
         }
