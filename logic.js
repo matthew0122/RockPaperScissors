@@ -13,7 +13,14 @@ playAgain.innerText = "Play again?";
 playAgain.addEventListener("click", newGame);
 buttons.forEach(element => {
     element.addEventListener("click", playGame);
+    element.addEventListener('transitionend', removeTransition);
 });
+
+function removeTransition(e){
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove("clicked");
+}
+
 
 function newGame(){
     buttons.forEach(element => {
@@ -28,6 +35,7 @@ function newGame(){
 }
 function playGame(e){
     let result = playRound(this.id, getComputerChoice());
+    this.classList.add("clicked");
     if (result[4] == 'W'){
         playerWin++;
     }

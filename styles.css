@@ -3,6 +3,16 @@
     justify-content: center;
 }
 .buttonPicture {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 300px;
+    max-height: 300px;
+    
+}
+.choice {
+    margin:10px;
+    transition:all 0.2s;
+}
+
+.clicked{
+    background-color: red;
+    transform:scale(1.1);
 }
