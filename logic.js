@@ -44,8 +44,12 @@ function newGame(){
     tempdiv.innerText = "";
 }
 function playGame(e){
-    let result = playRound(this.id, getComputerChoice());
+    let compChoice = getComputerChoice();
+    let result = playRound(this.id, compChoice);
     this.classList.add("clicked");
+    const comp = document.getElementById(compChoice);
+    comp.classList.add("clicked");
+    console.log(comp);
     if (result[4] == 'W'){
         playerWin++;
     }
