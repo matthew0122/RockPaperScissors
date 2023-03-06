@@ -1,12 +1,22 @@
 const buttons = document.querySelectorAll("button.choice");
+
 const results = document.createElement('div');
+results.classList.add("text");
+
 const tempdiv = document.createElement('div');
+tempdiv.classList.add("text");
+
 const finalRes = document.createElement('div');
+finalRes.classList.add("text");
+finalRes.classList.add("final");
+
 const playAgain = document.createElement('button');
+playAgain.innerText = "Play again?";
+playAgain.classList.add("again");
 
 let playerWin = 0;
 let compWin = 0;
-playAgain.innerText = "Play again?";
+
 
 
 
