@@ -6,7 +6,7 @@ const playAgain = document.createElement('button');
 
 let playerWin = 0;
 let compWin = 0;
-playAgain.innerText = "Would you like to play again?";
+playAgain.innerText = "Play again?";
 
 
 
